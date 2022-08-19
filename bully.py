@@ -56,15 +56,15 @@ def bully(leader):
             display(leader)
             break
         elif bully==2:
-            activateID = int(input(f"Enter a process to activate : (1 to {numberProcessList[-1]}) : "))
+            activateID = int(input(f"Enter a process to activate (1 to {numberProcessList[-1]}) : "))
             if(statuslist[activateID-1]==0):
                 statuslist[activateID-1]=1
                 leader = activateID
             elif(statuslist[activateID-1]):
                 print("The process is already alive. ")
-            for i in range(activateID+1,len(statuslist)):
+            for i in range(activateID+1, numberProcess+1):
                 print(f"Message is sent from {activateID} to {numberProcessList[i-1]}")
-                if(statuslist[numberProcessList[i-1]]):
+                if(statuslist[i-1]):
                     print(f"Response is sent from {numberProcessList[i-1]} to {activateID}")
                     leader = numberProcessList[i-1]
             print('\n')
